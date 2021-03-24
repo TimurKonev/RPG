@@ -12,6 +12,14 @@ namespace Tests
         [Test]
         public void NewTestScriptSimplePasses()
         {
+            //Arrange
+            List<string> myStrings = new List<string>();
+            //Act
+            myStrings.Add("Timur/'s string");
+            myStrings.Add("Timur/'s other string");
+            myStrings.RemoveAt(0);
+            //Assert
+            Assert.Greater(2,myStrings.Count);
             // Use the Assert class to test conditions
         }
 
