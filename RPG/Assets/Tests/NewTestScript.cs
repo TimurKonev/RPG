@@ -19,7 +19,7 @@ namespace Tests
             myStrings.Add("Timur/'s other string");
             myStrings.RemoveAt(0);
             //Assert
-            Assert.Greater(2,myStrings.Count);
+            Assert.AreEqual(1,myStrings.Count);
             // Use the Assert class to test conditions
         }
 
