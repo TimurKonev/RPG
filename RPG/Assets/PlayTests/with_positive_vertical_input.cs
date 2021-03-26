@@ -20,7 +20,10 @@ namespace a_player
             playerObject.transform.position = new Vector3(0, 1.5f, 0);
 
             Player player = playerObject.AddComponent<Player>();
-            player.PlayerInput.Vertical = 1f;
+            var testPlayerInput = new TestPlayerInput();
+            player.PlayerInput = testPlayerInput;
+
+            testPlayerInput.Vertical = 1f;
 
             float startingZPosition = player.transform.position.z;
             yield return new WaitForSeconds(5f);
@@ -28,5 +31,11 @@ namespace a_player
             Assert.Greater(endingZPosition, startingZPosition);
 
         }
+    }
+
+    public class TestPlayerInput : IPlayerInput
+    {
+        public float Horizontal { get; set; }
+        public float Vertical { get; set; }
     }
 }
