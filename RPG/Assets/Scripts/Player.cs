@@ -7,12 +7,14 @@ public class Player : MonoBehaviour
 {
     private CharacterController _characterController;
     private IMover _mover;
+    private Rotator _rotator;
     public IPlayerInput PlayerInput { get; set; } = new PlayerInput();
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-        _mover = new NavMeshMover(this);
+        _mover = new Mover(this);
+        _rotator = new Rotator(this);
     }
 
     private void Update()
@@ -23,5 +25,6 @@ public class Player : MonoBehaviour
             _mover = new NavMeshMover(this);
         
         _mover.Tick();
+        _rotator.Tick();
     }
 }
